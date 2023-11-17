@@ -36,28 +36,13 @@ function oldScrabbleScorer(word) {
 
 function initialPrompt() {
   let newPrompt = input.question("Let's play some scrabble! \n\nEnter a word to score: ");
-  // console.log(oldScrabbleScorer(newPrompt));
   return newPrompt
 };
 
-// let simpleScorer;
-// const simpleLetters = {['A', 'B', 'C','D', 'E', 'F','G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V','W', 'X', 'Y', 'Z']
-// };
-
 function simpleScorer(word) {
-  // word = word.toUpperCase();
-  // let scorer = 0;
-  // simpleScorer = "";
-  // for (let i = 0; i < word.length; i++) {
-  // scorer += 1;
-  //   }
-  //   return scorer;
   return word.length
 }
 
-
-
-// let vowelBonusScorer;
 //add conditional logic for vowel +3
 function vowelBonusScorer(word) {
   let vowels = ['A', 'E', 'I', 'O', 'U'];
@@ -72,10 +57,9 @@ function vowelBonusScorer(word) {
   }
   return scorer
 }
-//   } else {
-// return vowelBonusScorer(word)  }
-//   }
+
 let newPointStructure = (transform(oldPointStructure));
+
 function scrabbleScorer(word) {
   word = word.toLowerCase()
   let scrabbleScore = 0
@@ -86,7 +70,6 @@ function scrabbleScorer(word) {
 
   return scrabbleScore;
 }
-// let scrabbleScorer;
 
 //put oldScrabble, simple, and vowel in array
 const scoringAlgorithms = [
@@ -107,41 +90,29 @@ const scoringAlgorithms = [
   }];
 
 
-// let userAnswer;
 function scorerPrompt() {
   let numPrompt = input.question(`Which scoring algorithm would you like to use?\n\n0 - ${scoringAlgorithms[0].name}: ${scoringAlgorithms[0].description}
 1 - ${scoringAlgorithms[1].name}: ${scoringAlgorithms[1].description}
 2 - ${scoringAlgorithms[2].name}: ${scoringAlgorithms[2].description}
 \nEnter 0, 1, 2: `);
   let userInput = (Number(numPrompt));
-  //add conditional maybe?
-  // if (userInput === 0) {
-
-  // userAnswer.push(userInput);
   return (scoringAlgorithms[userInput])
-  // if (userInput === 0) {
-  //   input.question(scoringAlgorithms[0].scoringFunction)
-  // }
 }
+
 //using this function below to transform oldpointstructure to a new key
 function transform(oldPointStructure) {
   let newPointLetters = {}
-  // let newPointLetters = {}
   for (let idk in oldPointStructure) {
-    // oldPointStructure[idk]
+
     for (i = 0; i < oldPointStructure[idk].length; i++) {
       //this console log is printing each key in oldpointstructure
       // console.log(oldPointStructure[idk][i]);
-      // newPointLetters [`${idk[i]}`]
       newPointLetters[oldPointStructure[idk][i].toLowerCase()] = Number(idk)
-
-
-      //  newPointLetters = oldPointStructure[idk]['2']
     }
   }
   return newPointLetters
 };
-
+//I did what I wasn't supposed to do so I'm leaving this here
 // a: 1, 
 // b: 3,
 // c: 3,
@@ -172,20 +143,8 @@ function transform(oldPointStructure) {
 
 function runProgram() {
   let word = initialPrompt();
-
-  //  scorerPrompt();
-  // scorerPrompt();
-  // console.log(userAnswer)
   console.log(`Score for '${word}': ${scorerPrompt().scorerFunction(word)}`);
-  //  console.log(`Score for '${word}`);
-  //  console.log()
-  //  console.log(vowelBonusScorer("dummy"));
-  // scorerPrompt(this.)
-  // console.log("Scrabble scoring values for");
-  // console.log("letter a: ", newPointStructure.a);
-  // console.log("letter j: ", newPointStructure.j);
-  // console.log("letter z: ", newPointStructure["z"]);
-  // console.log(newPointStructure)
+
 }
 
 
